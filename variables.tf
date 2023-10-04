@@ -14,6 +14,11 @@ variable "folder_id" {
   description = "https://cloud.yandex.ru/docs/resource-manager/operations/folder/get-id"
 }
 
+variable "security_group_id" {
+  type        = string
+  description = "Id security group"
+}
+
 variable "default_zone" {
   type        = string
   default     = "ru-central1-a"
@@ -29,4 +34,15 @@ variable "vpc_name" {
   type        = string
   default     = "develop"
   description = "VPC network&subnet name"
+}
+
+variable "vm_for_each"{
+  type        = list(object({
+     vm_name=string
+     cpu=number
+     ram=number
+     disk=number
+     core_fraction=number}))
+  default     = [{vm_name="main", cpu=2, ram=1, disk=5, core_fraction=20}, {vm_name="replica", cpu=4, ram=2, disk=6, core_fraction=5}]
+  description = "Resource for vm"
 }
