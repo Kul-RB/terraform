@@ -46,3 +46,9 @@ variable "vm_for_each"{
   default     = [{vm_name="main", cpu=2, ram=1, disk=5, core_fraction=20}, {vm_name="replica", cpu=4, ram=2, disk=6, core_fraction=5}]
   description = "Resource for vm"
 }
+
+variable "vm_storages"{
+  type        = map
+  default     = {vm_name="storage", cpu=2, ram=2, core_fraction=5}
+  description = "Resource for vm storage"
+}
