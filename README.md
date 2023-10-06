@@ -25,3 +25,4 @@
 
 # Решение
 ![image](https://github.com/Kul-RB/terraform/assets/53901269/b7775a1e-c07a-4b03-b7c9-ef10ce03d679)
+Сформированная документация https://github.com/Kul-RB/terraform/blob/bc52f289a15b8559fc2d88b57fe056d032e26293/docs.md
