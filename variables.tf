@@ -31,6 +31,17 @@ variable "vpc_name" {
   description = "VPC network&subnet name"
 }
 
+variable "default_cidr_module" {
+  type        = list(string)
+  default     = ["10.0.2.0/24"]
+  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
+}
+
+variable "vpc_name_module" {
+  type        = string
+  default     = "develop_module"
+  description = "VPC network&subnet name"
+}
 ###common vars
 
 variable "vms_ssh_root_key" {

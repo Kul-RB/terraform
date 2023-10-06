@@ -1,19 +1,19 @@
-resource "yandex_vpc_network" "develop" {
-  name = var.vpc_name
-}
-resource "yandex_vpc_subnet" "develop" {
-  name           = var.vpc_name
-  zone           = var.default_zone
-  network_id     = yandex_vpc_network.develop.id
-  v4_cidr_blocks = var.default_cidr
+module "vpc"{
+  source    = "./vpc"
+  name      = var.vpc_name_module
+  zone      = var.default_zone
+  cidr      = var.default_cidr_module
+  token     = var.token
+  cloud_id  = var.cloud_id
+  folder_id = var.folder_id
 }
 
 module "test-vm" {
   source          = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
   env_name        = "develop"
-  network_id      = yandex_vpc_network.develop.id
+  network_id      = module.vpc.network_id
   subnet_zones    = ["ru-central1-a"]
-  subnet_ids      = [ yandex_vpc_subnet.develop.id ]
+  subnet_ids      = [ module.vpc.subnet_id ]
   instance_name   = "web"
   instance_count  = 1
   image_family    = "ubuntu-2004-lts"
