@@ -52,3 +52,15 @@ variable "vm_storages"{
   default     = {vm_name="storage", cpu=2, ram=2, core_fraction=5}
   description = "Resource for vm storage"
 }
+
+variable "vm_count_resource" {
+  type        = map
+  default     = {cpu=2, ram=1, disk=5, core_fraction=20, platform="standard-v1", type_disk="network-hdd"}
+  description = "Resource for vm"
+}
+
+variable "vm_resource" {
+  type        = map
+  default     = {cpu=2, ram=1, disk=5, core_fraction=20, platform="standard-v1", type_disk="network-ssd"}
+  description = "Resource for vm"
+}

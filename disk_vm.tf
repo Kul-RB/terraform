@@ -1,9 +1,9 @@
 resource "yandex_compute_disk" "vd_count"{
     count    = 3
     name     = "netology-vd-${count.index}"
-    type     = "network-ssd"
+    type     = var.vm_resource.type_disk
     zone     = var.default_zone
-    size     = 5
+    size     = var.vm_resource.disk
 
    
 }
@@ -11,7 +11,7 @@ resource "yandex_compute_disk" "vd_count"{
 resource "yandex_compute_instance" "vm_storage"{
     depends_on = [ yandex_compute_disk.vd_count ]
     name         = var.vm_storages.vm_name
-    platform_id  = "standard-v1"
+    platform_id  = var.vm_resource.platform
 
     resources {
         cores           = var.vm_storages.cpu
@@ -22,8 +22,8 @@ resource "yandex_compute_instance" "vm_storage"{
     boot_disk {
     initialize_params {
       image_id = data.yandex_compute_image.ubuntu-2004-lts.image_id
-      type = "network-hdd"
-      size = 5
+      type = var.vm_resource.type_disk
+      size = var.vm_resource.disk
     }   
     }
 

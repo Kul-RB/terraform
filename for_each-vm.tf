@@ -3,7 +3,7 @@ resource "yandex_compute_instance" "vm_for_each" {
   for_each = { for res in var.vm_for_each: res.vm_name=>res }
   
   name        = each.key
-  platform_id = "standard-v1"
+  platform_id = var.vm_count_resource.platform
   
   
 
@@ -16,7 +16,7 @@ resource "yandex_compute_instance" "vm_for_each" {
   boot_disk {
     initialize_params {
       image_id = data.yandex_compute_image.ubuntu-2004-lts.image_id
-      type = "network-hdd"
+      type = var.vm_count_resource.type_disk
       size = each.value.disk
     }   
   }
