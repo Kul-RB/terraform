@@ -37,7 +37,8 @@
 # Задание 5
 Напишите output, который отобразит все 5 созданных ВМ в виде списка словарей:
 # Решение
-![image](https://github.com/Kul-RB/terraform/assets/53901269/1ac5caca-421b-4027-abbc-e86b6a58ca89)
+![image](https://github.com/Kul-RB/terraform/assets/53901269/59119989-dec0-4f43-a1df-6112203f7d7c)
+
 
 # Задание 6
 Используя null_resource и local-exec, примените ansible-playbook к ВМ из ansible inventory-файла. Готовый код возьмите из демонстрации к лекции demonstration2.
