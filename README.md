@@ -61,3 +61,15 @@ terraform plan все равное выдает изменение
 3. Используя оба модуля, создайте кластер example из одного хоста, а затем добавьте в него БД test и пользователя app. Затем измените переменную и превратите сингл хост в кластер из 2-х серверов.
 4. Предоставьте план выполнения и по возможности результат. Сразу же удаляйте созданные ресурсы, так как кластер может стоить очень дорого. Используйте минимальную конфигурацию.
 # Решение
+![image](https://github.com/Kul-RB/terraform/assets/53901269/cb97ac8e-090f-4588-9be0-1cdac454ac32)
+![image](https://github.com/Kul-RB/terraform/assets/53901269/8d905fc4-e80d-408b-a86b-89e47e5a828e)
+![image](https://github.com/Kul-RB/terraform/assets/53901269/e4cdfb8d-6dd1-4cfe-9525-684e7b327d90)
+![image](https://github.com/Kul-RB/terraform/assets/53901269/724ec7bb-e125-441b-bf09-cd0f8256027c)
+
+![image](https://github.com/Kul-RB/terraform/assets/53901269/11d8ee0b-cd7f-46ee-9658-e809ac83a862)
+
+
+
+
+
+
