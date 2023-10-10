@@ -30,3 +30,19 @@
 В файле ansible.tf создайте inventory-файл для ansible. Используйте функцию tepmplatefile и файл-шаблон для создания ansible inventory-файла из лекции. Готовый код возьмите из демонстрации к лекции demonstration2. Передайте в него в качестве переменных группы виртуальных машин из задания 2.1, 2.2 и 3.2, т. е. 5 ВМ.
 Инвентарь должен содержать 3 группы [webservers], [databases], [storage] и быть динамическим, т. е. обработать как группу из 2-х ВМ, так и 999 ВМ.
 Выполните код. Приложите скриншот получившегося файла.
+
+# Решение
+![image](https://github.com/Kul-RB/terraform/assets/53901269/677b41d6-b341-4263-bd25-0ac46f6becea)
+
+# Задание 5
+Напишите output, который отобразит все 5 созданных ВМ в виде списка словарей:
+# Решение
+![image](https://github.com/Kul-RB/terraform/assets/53901269/59119989-dec0-4f43-a1df-6112203f7d7c)
+
+
+# Задание 6
+Используя null_resource и local-exec, примените ansible-playbook к ВМ из ansible inventory-файла. Готовый код возьмите из демонстрации к лекции demonstration2.
+Дополните файл шаблон hosts.tftpl. Формат готового файла: netology-develop-platform-web-0   ansible_host="<внешний IP-address или внутренний IP-address если у ВМ отсутвует внешний адрес>"
+
+# Решение
+![image](https://github.com/Kul-RB/terraform/assets/53901269/a845d0f8-1221-48ac-b624-da676c1f36a7)
