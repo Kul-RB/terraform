@@ -19,22 +19,23 @@ module "vpc_multi_subnet"{
 }
 
 module "mysql"{
-  source        = "./mysql"
-  cluster_name  = var.cluster_name
-  network_id    = module.vpc_multi_subnet.network_id
-  version_mysql = var.version_mysql
-  disk_type     = var.disk_type
-  disk_size     = var.disk_size
-  hosts_mysql   = module.vpc_multi_subnet.subnet 
-  name_db       = var.name_db
-  username      = var.username
-  password      = var.password
-  default_zone  = var.default_zone
-  token         = var.token
-  cloud_id      = var.cloud_id
-  folder_id     = var.folder_id
-  preset_id     = var.preset_id
-  env           = var.env
+  source            = "./mysql"
+  cluster_name      = var.cluster_name
+  network_id        = module.vpc_multi_subnet.network_id
+  version_mysql     = var.version_mysql
+  disk_type         = var.disk_type
+  disk_size         = var.disk_size
+  hosts_mysql       = module.vpc_multi_subnet.subnet 
+  name_db           = var.name_db
+  username          = var.username
+  password          = var.password
+  default_zone      = var.default_zone
+  token             = var.token
+  cloud_id          = var.cloud_id
+  folder_id         = var.folder_id
+  preset_id         = var.preset_id
+  env               = var.env
+  security_group_id = var.security_group_id
 }
 
 module "test-vm" {
