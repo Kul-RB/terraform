@@ -1,75 +1,31 @@
 # Задание 1
-1. Возьмите из демонстрации к лекции готовый код для создания ВМ с помощью remote-модуля.
-2. Создайте одну ВМ, используя этот модуль. В файле cloud-init.yml необходимо использовать переменную для ssh-ключа вместо хардкода. Передайте ssh-ключ в функцию template_file в блоке vars ={} . Воспользуйтесь примером. Обратите внимание, что ssh-authorized-keys принимает в себя список, а не строку.
-3. Добавьте в файл cloud-init.yml установку nginx.
-4. Предоставьте скриншот подключения к консоли и вывод команды sudo nginx -t.
-
+Возьмите код:
+из ДЗ к лекции 4,
+из демо к лекции 4.
+Проверьте код с помощью tflint и checkov. Вам не нужно инициализировать этот проект.
+Перечислите, какие типы ошибок обнаружены в проекте (без дублей).
 # Решение
-2. В файле [cloud-init.yml](https://github.com/Kul-RB/terraform/blob/12880230569e64b04fec8e4d98fac5c629d551ba/cloud-init.yml)https://github.com/Kul-RB/terraform/blob/12880230569e64b04fec8e4d98fac5c629d551ba/cloud-init.yml изменили
-   - строку с хардкод ключом поменяли на переменную ssh_authorized_keys:- ${ssh_public_key}. Переменную создали в файле  https://github.com/Kul-RB/terraform/blob/12880230569e64b04fec8e4d98fac5c629d551ba/locals.tf.
-   - добавили установку nginx runcmd: - apt install nginx -y
-
-В файле https://github.com/Kul-RB/terraform/blob/12880230569e64b04fec8e4d98fac5c629d551ba/main.tf поменяли:
-   - строку "instance_count" = 2 => "instance_count" = 1
-   - добавили строку vars = { ssh_public_key = local.public_key } в data.template_file
-
-![image](https://github.com/Kul-RB/terraform/assets/53901269/efd071a8-213a-4788-82cc-07ae6ef5da2c)
+TFLINT:
+![image](https://github.com/Kul-RB/terraform/assets/53901269/d95960d8-28ea-40e5-83cb-eae3088ac965)
+CHECKOV:
+![image](https://github.com/Kul-RB/terraform/assets/53901269/f8ce9501-d036-4f3a-8080-792667616557)
 
 # Задание 2
-1. Напишите локальный модуль vpc, который будет создавать 2 ресурса: одну сеть и одну подсеть в зоне, объявленной при вызове модуля, например: ru-central1-a.
-2. Вы должны передать в модуль переменные с названием сети, zone и v4_cidr_blocks.
-3. Модуль должен возвращать в root module с помощью output информацию о yandex_vpc_subnet. Пришлите скриншот информации из terraform console о своем модуле. Пример: > module.vpc_dev
-4. Замените ресурсы yandex_vpc_network и yandex_vpc_subnet созданным модулем. Не забудьте передать необходимые параметры сети из модуля vpc в модуль с виртуальной машиной.
-5. Откройте terraform console и предоставьте скриншот содержимого модуля. Пример: > module.vpc_dev.
-6. Сгенерируйте документацию к модулю с помощью terraform-docs.
+Возьмите ваш GitHub-репозиторий с выполненным ДЗ 4 в ветке 'terraform-04' и сделайте из него ветку 'terraform-05'.
+Повторите демонстрацию лекции: настройте YDB, S3 bucket, yandex service account, права доступа и мигрируйте state проекта в S3 с блокировками. Предоставьте скриншоты процесса в качестве ответа.
+Закоммитьте в ветку 'terraform-05' все изменения.
+Откройте в проекте terraform console, а в другом окне из этой же директории попробуйте запустить terraform apply.
+Пришлите ответ об ошибке доступа к state.
+Принудительно разблокируйте state. Пришлите команду и вывод.
 
 # Решение
-![image](https://github.com/Kul-RB/terraform/assets/53901269/b7775a1e-c07a-4b03-b7c9-ef10ce03d679)
-Сформированная документация https://github.com/Kul-RB/terraform/blob/bc52f289a15b8559fc2d88b57fe056d032e26293/docs.md
-
-# Задание 3
-1. Выведите список ресурсов в стейте.
-2. Полностью удалите из стейта модуль vpc.
-3. Полностью удалите из стейта модуль vm.
-4. Импортируйте всё обратно. Проверьте terraform plan. Изменений быть не должно. Приложите список выполненных команд и скриншоты процессы.
-
-# Решение
-1. ![image](https://github.com/Kul-RB/terraform/assets/53901269/59566d7b-edcf-4fe9-ab8f-4f8e650da17f)
-
-2,3. ![image](https://github.com/Kul-RB/terraform/assets/53901269/aa7b0a2a-363c-4e88-a88c-39a3f86a3168)
-
-4. ![image](https://github.com/Kul-RB/terraform/assets/53901269/c2403656-75d5-4325-b93b-8fb77d2a4196)
-
-![image](https://github.com/Kul-RB/terraform/assets/53901269/1763f13d-ef6a-40d8-a2ae-54bec06b76e2)
-
-![image](https://github.com/Kul-RB/terraform/assets/53901269/3adc590c-fdaf-48e3-a62f-be4a5f17cd4d)
-
-![image](https://github.com/Kul-RB/terraform/assets/53901269/aba0b403-ff56-449b-b386-942e720e9620)
-
-terraform plan все равное выдает изменение 
-![image](https://github.com/Kul-RB/terraform/assets/53901269/2337292a-5d94-4278-ad6f-4977e38b2ec6)
-
-# Задание 4
-Измените модуль vpc так, чтобы он мог создать подсети во всех зонах доступности, переданных в переменной типа list(object) при вызове модуля.
-
-# Решение
-![image](https://github.com/Kul-RB/terraform/assets/53901269/6ebb4e34-ec91-462a-ad31-f501f3497633)
-
-# Задание 5
-1. Напишите модуль для создания кластера managed БД Mysql в Yandex Cloud с одним или тремя хостами в зависимости от переменной HA=true или HA=false. Используйте ресурс yandex_mdb_mysql_cluster: передайте имя кластера и id сети.
-2. Напишите модуль для создания базы данных и пользователя в уже существующем кластере managed БД Mysql. Используйте ресурсы yandex_mdb_mysql_database и yandex_mdb_mysql_user: передайте имя базы данных, имя пользователя и id кластера при вызове модуля.
-3. Используя оба модуля, создайте кластер example из одного хоста, а затем добавьте в него БД test и пользователя app. Затем измените переменную и превратите сингл хост в кластер из 2-х серверов.
-4. Предоставьте план выполнения и по возможности результат. Сразу же удаляйте созданные ресурсы, так как кластер может стоить очень дорого. Используйте минимальную конфигурацию.
-# Решение
-![image](https://github.com/Kul-RB/terraform/assets/53901269/cb97ac8e-090f-4588-9be0-1cdac454ac32)
-![image](https://github.com/Kul-RB/terraform/assets/53901269/8d905fc4-e80d-408b-a86b-89e47e5a828e)
-![image](https://github.com/Kul-RB/terraform/assets/53901269/e4cdfb8d-6dd1-4cfe-9525-684e7b327d90)
-![image](https://github.com/Kul-RB/terraform/assets/53901269/724ec7bb-e125-441b-bf09-cd0f8256027c)
-
-![image](https://github.com/Kul-RB/terraform/assets/53901269/11d8ee0b-cd7f-46ee-9658-e809ac83a862)
+![image](https://github.com/Kul-RB/terraform/assets/53901269/4f85c6ad-d29e-4545-bc18-3db833876d4a)
 
 
+![image](https://github.com/Kul-RB/terraform/assets/53901269/da71f6fb-41b7-49e1-b1df-52e05e332e18)
 
+![image](https://github.com/Kul-RB/terraform/assets/53901269/96dcfe7f-d92e-4c53-8bc4-25720b5e5048)
 
+![image](https://github.com/Kul-RB/terraform/assets/53901269/23cd4ab8-adcf-4756-97b0-fe05f32c08b3)
 
-
+![image](https://github.com/Kul-RB/terraform/assets/53901269/6dd73ce3-3e34-4964-92df-1abf696d15ab)
