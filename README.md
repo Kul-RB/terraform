@@ -29,3 +29,22 @@ CHECKOV:
 ![image](https://github.com/Kul-RB/terraform/assets/53901269/23cd4ab8-adcf-4756-97b0-fe05f32c08b3)
 
 ![image](https://github.com/Kul-RB/terraform/assets/53901269/6dd73ce3-3e34-4964-92df-1abf696d15ab)
+
+![image](https://github.com/Kul-RB/terraform/assets/53901269/ce5e6172-408f-4ee9-80e6-be012718968c)
+
+![image](https://github.com/Kul-RB/terraform/assets/53901269/173311a7-e669-47bc-bd96-8524ab02839e)
+
+![image](https://github.com/Kul-RB/terraform/assets/53901269/efe5c1fe-de96-4290-91e8-d94829e3217d)
+
+![image](https://github.com/Kul-RB/terraform/assets/53901269/dedd046f-3abc-4fb4-8a20-3da7c0fb4a0d)
+
+# Задание 3
+Сделайте в GitHub из ветки 'terraform-05' новую ветку 'terraform-hotfix'.
+Проверье код с помощью tflint и checkov, исправьте все предупреждения и ошибки в 'terraform-hotfix', сделайте коммит.
+Откройте новый pull request 'terraform-hotfix' --> 'terraform-05'.
+Вставьте в комментарий PR результат анализа tflint и checkov, план изменений инфраструктуры из вывода команды terraform plan.
+Пришлите ссылку на PR для ревью. Вливать код в 'terraform-05' не нужно.
+
+# Решение
+
+
