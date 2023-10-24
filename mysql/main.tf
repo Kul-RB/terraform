@@ -3,6 +3,7 @@ resource "yandex_mdb_mysql_cluster" "mysql" {
   environment         = var.env
   network_id          = var.network_id
   version             = var.version_mysql
+  security_group_ids  = [ var.security_group_id ]
   deletion_protection = false
 
   resources {
@@ -16,6 +17,7 @@ resource "yandex_mdb_mysql_cluster" "mysql" {
     content {
     zone              = lookup(host.value, "zone", null)
     subnet_id         = lookup(host.value, "subnet_id", null)
+    assign_public_ip  = false
     }
    }
 

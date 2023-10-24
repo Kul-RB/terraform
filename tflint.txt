@@ -1,0 +1,53 @@
+7 issue(s) found:
+
+Warning: Module source "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main" uses a default branch as ref (main) (terraform_module_pinned_source)
+
+  on main.tf line 41:
+  41:   source          = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.4.0/docs/rules/terraform_module_pinned_source.md
+
+Warning: Missing version constraint for provider "template" in `required_providers` (terraform_required_providers)
+
+  on main.tf line 59:
+  59: data "template_file" "cloudinit" {
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.4.0/docs/rules/terraform_required_providers.md
+
+Warning: Missing version constraint for provider "yandex" in `required_providers` (terraform_required_providers)
+
+  on providers.tf line 3:
+   3:     yandex = {
+   4:       source = "yandex-cloud/yandex"
+   5:     }
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.4.0/docs/rules/terraform_required_providers.md
+
+Warning: [Fixable] variable "default_cidr" is declared but not used (terraform_unused_declarations)
+
+  on variables.tf line 22:
+  22: variable "default_cidr" {
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.4.0/docs/rules/terraform_unused_declarations.md
+
+Warning: [Fixable] variable "vpc_name" is declared but not used (terraform_unused_declarations)
+
+  on variables.tf line 28:
+  28: variable "vpc_name" {
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.4.0/docs/rules/terraform_unused_declarations.md
+
+Warning: [Fixable] variable "vpc_name_ha_module" is declared but not used (terraform_unused_declarations)
+
+  on variables.tf line 46:
+  46: variable "vpc_name_ha_module" {
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.4.0/docs/rules/terraform_unused_declarations.md
+
+Warning: [Fixable] variable "vms_ssh_root_key" is declared but not used (terraform_unused_declarations)
+
+  on variables.tf line 53:
+  53: variable "vms_ssh_root_key" {
+
+Reference: https://github.com/terraform-linters/tflint-ruleset-terraform/blob/v0.4.0/docs/rules/terraform_unused_declarations.md
+

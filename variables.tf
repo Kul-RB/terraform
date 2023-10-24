@@ -19,17 +19,6 @@ variable "default_zone" {
   default     = "ru-central1-a"
   description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
 }
-variable "default_cidr" {
-  type        = list(string)
-  default     = ["10.0.1.0/24"]
-  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
-}
-
-variable "vpc_name" {
-  type        = string
-  default     = "develop"
-  description = "VPC network&subnet name"
-}
 
 variable "default_cidr_module" {
   type        = list(string)
@@ -41,19 +30,6 @@ variable "vpc_name_module" {
   type        = string
   default     = "develop_module"
   description = "VPC network&subnet name"
-}
-
-variable "vpc_name_ha_module" {
-  type        = string
-  default     = "develop_module_ha"
-  description = "VPC network&subnet name"
-}
-###common vars
-
-variable "vms_ssh_root_key" {
-  type        = string
-  default     = "your_ssh_ed25519_key"
-  description = "ssh-keygen -t ed25519"
 }
 
 variable "subnets" {
@@ -129,4 +105,9 @@ variable  "preset_id"{
   type         = string
   default      = "s2.micro"
   description  = "resource preset id"
+}
+
+variable "security_group_id" {
+  type         = string
+  description  = "id security group"
 }
