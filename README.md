@@ -56,5 +56,32 @@ type=string, description="ip-адрес" — проверка, что значе
 type=list(string), description="список ip-адресов" — проверка, что все адреса верны. Тесты: ["192.168.0.1", "1.1.1.1", "127.0.0.1"] и ["192.168.0.1", "1.1.1.1", "1270.0.0.1"].
 
 # Решение
+TRUE TEST
+![image](https://github.com/Kul-RB/terraform/assets/53901269/90146737-5617-4f4a-a77b-6f63eda603ee)
+
+FALSE TEST
+![image](https://github.com/Kul-RB/terraform/assets/53901269/5cf70eae-fed1-4c7d-8699-6b07d0965e02)
+
+# Задание 5
+Напишите переменные с валидацией:
+type=string, description="любая строка" — проверка, что строка не содержит символов верхнего регистра;
+type=object — проверка, что одно из значений равно true, а второе false, т. е. не допускается false false и true true:
+
+# Решение
+Upper case
+![image](https://github.com/Kul-RB/terraform/assets/53901269/a2b17a45-9e38-49d8-a6a4-bee9b2f78406)
+
+Bool
+![image](https://github.com/Kul-RB/terraform/assets/53901269/fa2cc3b7-532d-4b68-8709-4e875febb0a6)
+
+![image](https://github.com/Kul-RB/terraform/assets/53901269/13a2d56b-3c5a-40de-9d7e-69b0922420e2)
+
+![image](https://github.com/Kul-RB/terraform/assets/53901269/f4f96fa6-98a3-4bbe-93b4-d8be33260299)
+
+
+
+
+
+
 
 
