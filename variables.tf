@@ -130,3 +130,57 @@ variable  "preset_id"{
   default      = "s2.micro"
   description  = "resource preset id"
 }
+
+variable "check_id" {
+  type         = string
+  description  = "IP-address"
+  default      = "192.168.0.1"
+  validation {
+    condition     = can(regex("^\\d{1,3}[.]\\d{1,3}[.]\\d{1,3}[.]\\d{1,3}", var.check_id))
+    error_message = "Invalid IP"
+  }
+}
+
+variable "check_list_ip" {
+  type          = list(string)
+  description   = "List IP-address"
+  default       = ["192.168.0.1", "1.1.1.1", "127.0.0.1"]
+  validation {
+    condition     = alltrue([
+      for ip in var.check_list_ip:
+       can(regex("^\\d{1,3}[.]\\d{1,3}[.]\\d{1,3}[.]\\d{1,3}", ip))
+    ])
+    error_message = format("Invalid IP %s from list", join(", ", [for ip in var.check_list_ip: 
+       ip if !can(regex("^\\d{1,3}[.]\\d{1,3}[.]\\d{1,3}[.]\\d{1,3}", ip)) ]))
+  }
+}
+
+
+variable "check_upper" {
+  type          = string
+  description   = "Any string without upper"
+  default       = "terraform upper check"
+
+  validation {
+    condition     = !can(regex("[[:upper:]]", var.check_upper))
+    error_message = "There is upper case"
+  }
+} 
+
+variable "in_the_end_there_can_be_only_one" {
+    description="Who is better Connor or Duncan?"
+    type = object({
+        Dunkan = optional(bool)
+        Connor = optional(bool)
+    })
+
+    default = {
+        Dunkan = true
+        Connor = false
+    }
+
+    validation {
+        error_message = "There can be only one MacLeod"
+        condition = var.in_the_end_there_can_be_only_one.Dunkan == var.in_the_end_there_can_be_only_one.Connor ? false : true
+    }
+}
